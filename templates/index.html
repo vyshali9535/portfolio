@@ -1,46 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>{{ about.name|default:"My Portfolio" }}</title>
-  <link rel="stylesheet" href="/static/style.css">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ about.name|default:"My Portfolio" }}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-  <header>
+  <nav class="navbar">
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+<header>
+    <section  id="home">
     <h1>{{ about.name }}</h1>
-    <p>{{ about.bio }}</p>
+    <div class="social-links">
+  <!-- Instagram -->
+  <a href="https://www.instagram.com/vy_shu__9535?igsh=bWJucjlwNHVrbWds" target="_blank">
+    <i class="fab fa-instagram"></i>
+  </a>
 
-    <h3>Skills</h3>
-<ul>
-  {% if skills %}
+  <!-- LinkedIn -->
+  <a href="https://www.linkedin.com/in/vyshali-k-88580337b" target="_blank">
+    <i class="fab fa-linkedin"></i>
+  </a>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/919353180578" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- GitHub -->
+  <a href="https://github.com/vyshali9535" target="_blank">
+    <i class="fab fa-github"></i>
+  </a>
+</div>
+</section>
+<section id="about">
+  <h2>About</h2>
+  <p>{{ about.bio }}</p>
+</section>
+    
+<section id="skills">  
+  <h3>Skills</h3>
+  <ul>
+    {% if skills %}
     {% for skill in skills %}
-      <li>{{ skill }}</li>
+    <li>{{ skill }}</li>
     {% endfor %}
-  {% else %}
+    {% else %}
     <li>Add your About info in the admin.</li>
-  {% endif %}
-</ul>
+    {% endif %}
+  </ul>
+</section>
   </header>
-
   <main>
+  <section id="projects">
     <h2>Projects</h2>
-    <ul>
+    <div class="projects-grid">
       {% for project in projects %}
-        <li>
-          <strong>{{ project.title }}</strong><br>
-          {{ project.description }}<br>
-          {% if project.link %}
-            <a href="{{ project.link }}" target="_blank">View Project</a>
-          {% endif %}
-          {% if project.image %}
-            <img src="{{ project.image.url }}" alt="{{ project.title }}" width="200">
-          {% endif %}
-        </li>
+      <div class="project-card">
+        {% if project.image %}
+        <img src="{{ project.image.url }}" alt="{{ project.title }}">
+        {% endif %}
+        <h3>{{ project.title }}</h3>
+        <p>{{ project.description }}</p>
+        {% if project.link %}
+        <a href="{{ project.link }}" target="_blank" class="project-link">View Project</a>
+        {% endif %}
+      </div>
       {% empty %}
-        <p>No projects yet. Add some in the admin.</p>
+      <p>No projects yet. Add some in the admin.</p>
       {% endfor %}
-    </ul>
-  </main>
+    </div>
+  </section>
+</main>
+  <section id="contact">
+  <h2>Contact</h2>
+  <p>If you’d like to get in touch, you can reach me at:</p>
+  <p>Email: vyshalivyshali45@gmail.com</p>
+  
+  <!-- Optional: Contact Form -->
+  <form action="{% url 'contact' %}" method="post" class="contact-form">
+    {% csrf_token %}
+    <div class="form-group">
+      <input type="text" name="name" placeholder="Your Name" required>
+    </div>
+    <div class="form-group">
+      <input type="email" name="email" placeholder="Your Email" required>
+    </div>
+    <div class="form-group">
+      <textarea name="message" placeholder="Your Message" required></textarea>
+    </div>
+    <button type="submit">Send</button>
+
+  </form>
+</section>
 
   <footer>
     <p>&copy; {{ about.name|default:"You" }} — Portfolio</p>

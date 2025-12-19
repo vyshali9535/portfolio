@@ -12,23 +12,34 @@ body {
 header {
   text-align: center;
   padding: 40px 20px;
-  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  background: linear-gradient(135deg, #410788, #5b041e);
   color: white;
 }
 header h1 {
   margin: 0;
-  font-size: 2.5em;
+  font-size: 6em;
 }
 header p {
   font-size: 1.2em;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
+
+/* /* about section * */
+#about h2{
+    font-size: 2.5em;
+    margin-left: 0px;
+    width: 50px;
+    margin-top: 2em;
+    
+}
 /* Skills section */
 h3 {
-  text-align: center;
-  margin-top: 30px;
-  color: #444;
+  
+  margin-top: 3em;
+  color:white;
+  width: 50px;
+  font-size: 2em;
 }
 ul {
   list-style: none;
@@ -52,34 +63,168 @@ ul li:hover {
 }
 
 /* Projects section */
-main {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 0 20px;
+
+#projects{
+    background-color: rgb(119, 9, 33);
+    color: white;
+    font-size: 2em;
 }
-.projects li {
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 15px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-.projects li strong {
-  font-size: 1.2em;
-  color: #333;
-}
-.projects img {
-  max-width: 100%;
-  border-radius: 8px;
-  margin-top: 10px;
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 10px;
+  padding: 20px;
+  font-size: 12px;
 }
 
+.project-card {
+  border: 1px solid #4e0956;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.project-card img {
+  max-width: 100%;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.project-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #0077b5;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.project-link:hover {
+  text-decoration: underline;
+} 
+
+.project-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
 /* Footer */
 footer {
   text-align: center;
   padding: 20px;
-  background: linear-gradient(135deg, #4facfe, #00f2fe);
+   background: linear-gradient(135deg, #410788, #5b041e);
   color: #fff;
   margin-top: 40px;
+}
+.social-links {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.social-links a {
+  margin: 0 12px;
+  text-decoration: none;
+  color: white; /* default color */
+  font-size: 28px; /* icon size */
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #0077b5; /* hover color (LinkedIn blue as example) */
+}
+.navbar {
+  background-color: white;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #040713;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #0077b5; /* hover color */
+}
+#contact {
+  padding: 40px;
+  background-color: #53065b;
+  text-align: center;
+  margin-top: 2em;
+  color: white;
+  
+}
+
+.contact-form {
+  margin-top: 20px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #160202;
+  border-radius: 5px;
+  margin-top: 2em;
+  
+}
+
+.contact-form button {
+  background-color: #0077b5;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background-color: #005f8d;
+}
+html {
+  scroll-behavior: smooth;   /* keeps the glide effect */
+  scroll-padding-top: 60px;  /* leaves space equal to navbar height */
+}
+
+.navbar {
+  background-color: #222;
+  padding: 10px 0;
+  text-align: center;
+  position: fixed;   /* keeps it stuck at the top */
+  top: 0;            /* position at very top */
+  width: 100%;       /* full width */
+  z-index: 1000;     /* stays above other elements */
+}
+
+body {
+  margin: 0;
+  padding-top: 60px; /* prevents content from hiding under navbar */
+}
+section {
+  scroll-margin-top: 80px; /* match your actual navbar height */
 }
