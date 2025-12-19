@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{ about.name|default:"My Portfolio" }}</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <h1>{{ about.name }}</h1>
+    <p>{{ about.bio }}</p>
+
+    <h3>Skills</h3>
+<ul>
+  {% if skills %}
+    {% for skill in skills %}
+      <li>{{ skill }}</li>
+    {% endfor %}
+  {% else %}
+    <li>Add your About info in the admin.</li>
+  {% endif %}
+</ul>
+  </header>
+
+  <main>
+    <h2>Projects</h2>
+    <ul>
+      {% for project in projects %}
+        <li>
+          <strong>{{ project.title }}</strong><br>
+          {{ project.description }}<br>
+          {% if project.link %}
+            <a href="{{ project.link }}" target="_blank">View Project</a>
+          {% endif %}
+          {% if project.image %}
+            <img src="{{ project.image.url }}" alt="{{ project.title }}" width="200">
+          {% endif %}
+        </li>
+      {% empty %}
+        <p>No projects yet. Add some in the admin.</p>
+      {% endfor %}
+    </ul>
+  </main>
+
+  <footer>
+    <p>&copy; {{ about.name|default:"You" }} — Portfolio</p>
+  </footer>
+</body>
+</html>
