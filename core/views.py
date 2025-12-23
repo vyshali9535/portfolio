@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import About, Project
+from .models import About, Project, ContactMessage
 
 def home(request):
     about = About.objects.first()
@@ -24,15 +24,19 @@ def contact(request):
         email = request.POST.get("email")
         message = request.POST.get("message")
 
-        # For now, just print to console so you can see it works
-        print("New message:", name, email, message)
+        # Save to database
+        ContactMessage.objects.create(
+            name=name,
+            email=email,
+            message=message
+        )
 
-        return redirect("contact_success")
+        # Redirect to a success page
+        return redirect("contact_success")   # ✅ redirect properly
 
-    # GET request → show the form
     return render(request, "index.html")
 
 
-# NEW success view
+# NEW success view (separate function)
 def contact_success(request):
     return render(request, "contact_success.html")

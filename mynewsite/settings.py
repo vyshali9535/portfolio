@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-c&xvjukhqz4iq=c*k$v_&w8fkn8rgdptvrq+n21)_!(at-o3c_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [' vyshali.pythonanywhere.com', 'localhost']
 
 
 # Application definition
@@ -114,7 +115,15 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / "static"]
+
+# This is where collectstatic will put all static files
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Optional: if you have a local static folder inside your project
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+
 
 # Media files (uploaded images)
 MEDIA_URL = '/media/'

@@ -18,3 +18,14 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
+    
+# storing contact in database
+
+class ContactMessage(models.Model):
+    name = models.CharField(max_length=100)            # sender's name
+    email = models.EmailField()                        # sender's email
+    message = models.TextField()                       # message content
+    created_at = models.DateTimeField(auto_now_add=True)  # timestamp
+
+    def __str__(self):
+        return f"{self.name} ({self.email})"

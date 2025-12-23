@@ -1,12 +1,17 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <title>{{ about.name|default:"My Portfolio" }}</title>
+  {% load static %}
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+  <video autoplay muted loop playsinline id="bg-video">
+  <source src="{% static 'videos/backgroundvideo.mp4' %}" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
   <header>
     <h1>{{ about.name }}</h1>
     <p>{{ about.bio }}</p>
@@ -47,4 +52,4 @@
     <p>&copy; {{ about.name|default:"You" }} — Portfolio</p>
   </footer>
 </body>
-</html>
+</html> -->
