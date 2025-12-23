@@ -398,3 +398,86 @@ button:hover {
   #contact h2 { font-size: 1.8rem; }
   .contact-card { padding: 20px; max-width: 100%; }
 }
+
+/* --- Responsive adjustments for mobile and tablet --- */
+
+/* Tablet screens */
+@media (max-width: 992px) {
+  #home h1 {
+    font-size: 3rem;
+  }
+  #home .tagline {
+    font-size: 1.5rem;
+  }
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  .navbar li {
+    margin: 10px 0;
+  }
+}
+
+/* Phone screens */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  #home h1 {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+  #home .tagline {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+  #home .intro {
+    font-size: 1rem;
+    max-width: 90%;
+    text-align: center;
+  }
+
+  #about,
+  #skills,
+  #projects,
+  #contact {
+    padding: 20px 10px;
+    margin: 20px auto;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .project-card img {
+    width: 100%;
+  }
+
+  .contact-card {
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  #contact h2 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  .navbar li {
+    margin: 8px 0;
+  }
+}
