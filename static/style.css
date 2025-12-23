@@ -377,3 +377,24 @@ button:hover {
     font-size: 0.9rem;
     color: #ccc;
   }
+  /* --- Responsive adjustments --- */
+
+/* Tablet screens */
+@media (max-width: 992px) {
+  #home h1 { font-size: 3rem; }
+  #home .tagline { font-size: 1.5rem; }
+  .navbar ul { flex-direction: column; }
+}
+
+/* Phone screens */
+@media (max-width: 768px) {
+  #home h1 { font-size: 2.2rem; }
+  #home .tagline { font-size: 1.2rem; }
+  #home .intro { font-size: 1rem; max-width: 90%; }
+
+  .projects-grid { grid-template-columns: 1fr; }
+  .project-card img { width: 100%; }
+
+  #contact h2 { font-size: 1.8rem; }
+  .contact-card { padding: 20px; max-width: 100%; }
+}
